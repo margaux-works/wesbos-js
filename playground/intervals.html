@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Intervals and Timers</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
+
+  <body>
+    <script>
+      function buzzer() {
+        console.log('BIIIIIP');
+      }
+
+      console.log('starting');
+      setTimeout(buzzer, 500);
+      console.log('ending');
+
+      // setInterval(buzzer, 2000);  runs interval every 2 secs but will only start after 2 sec.
+
+      // to make it start right away
+      function setImmediateInterval(funcToRun, ms) {
+        // right away call that function
+        funcToRun();
+        // run a regular interval
+        return setInterval(funcToRun, ms);
+      }
+
+      setImmediateInterval(buzzer, 2000);
+    </script>
+  </body>
+</html>
