@@ -28,6 +28,65 @@
         //else
         return slug;
       }
+
+      // coercition
+      const isCool = true;
+
+      if (!isCool) {
+        console.log('you are not cool');
+      }
+
+      // ternary
+
+      // if else without ternary
+      const count = 2;
+      // let word;
+      // if (count === 1) {
+      //   word = 'item';
+      // } else {
+      //   word = 'items';
+      // }
+
+      // ternary
+      // 1. condition
+      // 2. what to do if true
+      // 3. what to do if false
+
+      const word = count === 1 ? 'item' : 'items';
+      const sentence = `You have ${count} item${
+        count === 1 ? '' : 's'
+      } in your cart`;
+      console.log(sentence);
+
+      function showAdminBar() {
+        console.log('showingAdminBar');
+      }
+      const isAdmin = true;
+      isAdmin ? showAdminBar() : null;
+
+      // AND AND TRICK!
+
+      function check1() {
+        console.log('running check 1');
+        return true;
+      }
+
+      function check2() {
+        console.log('running check 2');
+        return false;
+      }
+
+      function check3() {
+        console.log('running check 3');
+
+        return true;
+      }
+
+      if (check1() && check2() && check3()) {
+        console.log('all checks passed');
+      } else {
+        console.log('some checks failed');
+      }
     </script>
   </body>
 </html>
