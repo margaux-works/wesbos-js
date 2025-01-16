@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
+
+  <body>
+    <script>
+      const margaux = {
+        firstName: 'Margaux',
+        lastName: 'Espinasse',
+        age: 36,
+        cat: ['Dolce', 'Reinette', 'Tintin'],
+      };
+      console.log(margaux.lastName);
+      console.log(margaux['lastName']);
+
+      const nameKey = 'Name';
+      console.log(margaux['first' + nameKey]);
+      console.log(margaux['last' + nameKey]);
+
+      const interestedIn = prompt(
+        'What do you want to know about Margaux Choose between firstName, lastName, age and cat'
+      );
+
+      if (margaux[interestedIn]) {
+        console.log(margaux[interestedIn]);
+      } else {
+        console.log('Wrong request');
+      }
+
+      // Challenge
+      // " Margaux has 3 cats, and her best cas is called Dolce"
+      // use multiple dots to find cats
+
+      console.log(
+        `${margaux.firstName} has ${margaux.cat.length} cats, and her best cat is called ${margaux.cat[0]} `
+      );
+    </script>
+  </body>
+</html>
