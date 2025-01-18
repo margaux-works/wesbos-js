@@ -110,8 +110,6 @@
         corn: 234,
       };
 
-      const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
-
       const feedback = [
         { comment: 'Love the burgs', rating: 4 },
         { comment: 'Horrible Service', rating: 2 },
@@ -121,16 +119,6 @@
       ];
 
       const faces = ['😃', '🤠', '🤡', '🤑', '😵', '🌞', '🐶', '😺'];
-
-      const inventory = [
-        { type: 'shirt', price: 4000 },
-        { type: 'pants', price: 4532 },
-        { type: 'socks', price: 234 },
-        { type: 'shirt', price: 2343 },
-        { type: 'pants', price: 2343 },
-        { type: 'socks', price: 542 },
-        { type: 'pants', price: 123 },
-      ];
 
       // Map, Filter, Reduce
       function addArms(face) {
@@ -166,6 +154,37 @@
       //   faces
       //     .map((face) => attachBody(face, '🍟'))
       //     .forEach((body) => console.log(body));
+
+      // reduce
+      console.clear();
+
+      const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
+
+      function tallyNumbers(tally, currentTotal) {
+        console.log(`The current tally is ${tally}`);
+        console.log(`The current total is ${currentTotal}`);
+        console.log('-----');
+        // return the current tally plus the amount of this order
+        return tally + currentTotal;
+      }
+
+      const allOrders = orderTotals.reduce(tallyNumbers, 0);
+
+      const inventory = [
+        { type: 'shirt', price: 4000 },
+        { type: 'pants', price: 4532 },
+        { type: 'socks', price: 234 },
+        { type: 'shirt', price: 2343 },
+        { type: 'pants', price: 2343 },
+        { type: 'socks', price: 542 },
+        { type: 'pants', price: 123 },
+      ];
+
+      function inventoryReducer(totals, item) {
+        console.log(`looping over ${item.type}`);
+      }
+
+      const inventoryCounts = inventory.reduce(inventoryReducer, {});
     </script>
   </body>
 </html>
