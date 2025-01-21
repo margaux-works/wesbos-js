@@ -224,5 +224,83 @@ const books = [
 ];
 
 // 1.1 Destructure the books array into two variables called firstBook and secondBook
-const [firstBook, secondBook] = books;
-console.log(firstBook, secondBook);
+// const [firstBook, secondBook] = books;
+// console.log(firstBook, secondBook);
+
+// 1.2 Destructure the books array into a variable called thirdBook. You must skip the first two books.
+const [, , thirdBook] = books;
+console.log(thirdBook);
+
+// 1.3
+const ratings = [
+  ['rating', 4.19],
+  ['ratingsCount', 144584],
+];
+
+const [[, rating], [, ratingsCount]] = ratings;
+console.log(ratings);
+
+//1.4
+const ratingStars = [63405, 1808];
+const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
+console.log(ratingStars);
+
+// 2.1 Destructure the first book object from the books array into variables called title, author and ISBN.
+
+const { title, author, ISBN } = books[0];
+console.log(title, author, ISBN);
+
+// 2.2 Each book object has the keywords property. Destructure the first book object from the books array into a variable called tags. The tags variable should be assigned with the value of the keywords property.
+const { keywords: tags } = books[0];
+console.log(tags);
+
+// 2.3 The seventh book from the books array is missing the programmingLanguage property. Destructure the seventh book object (books[6]) into variables called language and programmingLanguage. Assign the programmingLanguage variable with a default value of 'unknown'.
+const { language, programmingLanguage = 'unknown' } = books[6];
+console.log(language, programmingLanguage);
+
+// 2.4 Below are two variables called bookTitle and bookAuthor. Reassign them with the values of the title and author properties of the first book object from the books array.
+
+const { title: bookTitle, author: bookAuthor } = books[0];
+console.log(bookTitle, bookAuthor);
+
+// 2.5
+
+const {
+  thirdParty: {
+    goodreads: { rating: bookRating },
+  },
+} = books[0];
+console.log(bookRating);
+
+// 2.6
+
+function printBookInfo(title, author, year = 'year unkwnown') {
+  console.log(`${title} by ${author}, ${year}`);
+}
+
+printBookInfo(books[1]);
+
+// 3.1
+const bookAuthors = [...books[0].author, ...books[1].author];
+console.log(bookAuthors);
+
+// 3.2
+function spellWord(word) {
+  console.log(...word);
+}
+spellWord('Margo');
+
+// 4.1
+const [mainKeyword, ...rest] = books[0].keywords;
+console.log(mainKeyword, ...rest);
+
+// 4.2
+const { publisher: bookPublisher, ...restOftheBook } = books[1];
+console.log(bookPublisher, restOftheBook);
+
+// 4.3
+function printBookAuthorsCount(title, ...authors) {
+  console.log(`The book ${title} has ${authors.length} authors`);
+}
+
+printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
