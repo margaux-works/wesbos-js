@@ -440,3 +440,20 @@ const logBookTheme = function (title) {
 };
 
 console.log(logBookTheme(' algorithms and systems'));
+
+// 17.1
+
+const bookCategories =
+  'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
+
+function logBookCategories(categories) {
+  categories = categories.split(';');
+  for (let categorie of categories) {
+    console.log(categorie);
+  }
+}
+logBookCategories(bookCategories);
+
+// 17.2
+function getKeywordsAsString() {}
+getKeywordsAsString(books);
