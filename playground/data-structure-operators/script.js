@@ -115,6 +115,54 @@ const [pizza, , risotto, ...otherFood] = [
 ];
 console.log(pizza, risotto, otherFood);
 
+// && and || operators
+console.log('---OR---');
+// can use any data type, return any type, short-circuiting
+console.log(3 || 'Margo'); // 3
+console.log('' || 'Margo'); // 'Margo'
+console.log(true || 0); // true
+console.log(undefined || null); // null - happens even though null is also a falsy value
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // 'Hello' - first truthy value
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1); // 10
+
+const guests2 = restaurant.numGuests || 10; // easier method than using ternary statement
+console.log(guests2); // 10
+
+console.log('---AND---');
+console.log(0 && 'Jonas'); // 0 - short-circuiting when first value if false and returns the first value without evaluating second operator
+console.log(7 && 'Jonas'); // Jonas - when first value is truthy, the evaluation continues and return the last true operator
+
+console.log('Hello' && 23 && null && 'jonas'); // null - evaluation no longers continue after null because it is falsy, and then this value is returned
+
+// if (restaurant.orderPizza) {
+//   // if this function exists, then we execute it
+//   restaurant.orderPizza('mushrooms', 'eggs');
+// }
+
+// // similar to with AND statement
+// restaurant.orderPizza && restaurant, orderPizza('mushrooms', 'eggs');
+
+const rest1 = {
+  name: 'Capri',
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+console.log(rest1);
+console.log(rest2);
+
 // // whithout destructuring
 // const arr = [2, 3, 4];
 // const a = arr[0];
