@@ -333,3 +333,110 @@ for (let i = 0; i < books.length; i++) {
 for (let i = 0; i < books.length; i++) {
   books[i].highlighted &&= books[i].thirdParty?.goodreads?.rating >= 4.2;
 }
+
+//8.1
+let pageSum = 0;
+for (let book of books) {
+  pageSum += book.pages;
+}
+console.log(pageSum);
+
+// 8.2
+let allAuthors = [];
+for (let book of books) {
+  if (typeof book.author === 'string') {
+    allAuthors.push(book.author);
+  } else {
+    for (const author of book.author) {
+      allAuthors.push(author);
+    }
+  }
+}
+console.log(allAuthors);
+
+// 15.1
+let firstISBN = books[0].ISBN;
+console.log(firstISBN['6'], firstISBN['4'], firstISBN['9'], firstISBN['8']);
+
+// 15.2
+const quote =
+  'A computer once beat me at chess, but it was no match for me at kick boxing';
+console.log(quote.indexOf('chess'));
+
+// 15.3
+console.log(quote.slice(-7));
+console.log(quote.slice(quote.lastIndexOf('') + 1)); // if we do not know the index
+
+// 15.4
+
+function isContributor(author) {
+  return author.lastIndexOf('(Contributor)') !== -1;
+}
+
+console.log(isContributor('Julie Sussman (Contributor)'));
+console.log(isContributor('Robert Sedgewick'));
+
+// 16.1
+
+// function normalizedAuthorName(author) {
+//   // remove space at the beg
+//   let trimmedAuthor = author.trim();
+//   let lowerAuthor = trimmedAuthor.toLowerCase();
+//   //get first name and capitalise first letter
+//   let firstName = trimmedAuthor.slice(0, author.indexOf(' '));
+//   console.log(firstName);
+//   // get last name, remove (contributor) if exists  and capitalise first letter
+// if (lowerAuthor.includes('(Contributor)')) {
+//   lowerAuthor.slice(lastIndexOf(''));
+//   // add first and last name together
+//   l;
+//   return author;
+// }
+// normalizeAuthorName('  JuliE sussMan (Contributor)');
+
+function normalizeAuthorName(author) {
+  author = author.trim();
+  const firstName = author.slice(0, author.indexOf(' '));
+
+  let lastName = '';
+  if (author.indexOf(' ') === author.lastIndexOf(' ')) {
+    lastName = author.slice(author.indexOf(' ') + 1, author.length);
+  } else {
+    lastName = author.slice(author.indexOf(' ') + 1, author.lastIndexOf(' '));
+  }
+
+  const capitalizedFirstName =
+    firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
+  const capitalizedLastName =
+    lastName[0].toUpperCase() + lastName.slice(1).toLowerCase();
+
+  return capitalizedFirstName + ' ' + capitalizedLastName;
+}
+
+console.log(normalizeAuthorName('  JuliE sussMan (Contributor)'));
+
+// 16.2
+const newBookTitle = books[1].title.replace('Programs', 'Software');
+console.log(newBookTitle);
+
+// 16.3
+const logBookTheme = function (title) {
+  let lowerTitle = title.toLowerCase();
+  if (lowerTitle.startsWith('computer')) {
+    console.log('This book is about computers');
+  } else if (
+    lowerTitle.includes('algorithms') &&
+    lowerTitle.includes('structures')
+  ) {
+    console.log('This book is about algorithms and data structures');
+  } else if (
+    (lowerTitle.endsWith('system') || lowerTitle.endsWith('systems')) &&
+    !lowerTitle.includes('operating')
+  ) {
+    console.log(
+      'This book is about some systems, but definitely not about operating systems'
+    );
+  }
+};
+
+console.log(logBookTheme(' algorithms and systems'));

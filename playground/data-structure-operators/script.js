@@ -23,13 +23,31 @@ const mexicanFoods = new Set([
 ]);
 
 // Data needed for first part of the section
+
+// const openingHours =  {
+//     thu: {
+//       open: 12,
+//       close: 22,
+//     },
+//     fri: {
+//       open: 11,
+//       close: 23,
+//     },
+//     sat: {
+//       open: 0, // Open 24 hours
+//       close: 24,
+//     },
+//   },
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours: {
+  // ES6 enhanced objects literals
+  // openingHours,
+  openingHour: {
     thu: {
       open: 12,
       close: 22,
@@ -43,7 +61,6 @@ const restaurant = {
       close: 24,
     },
   },
-
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
@@ -198,3 +215,8 @@ console.log(rest2);
 // // default values if we do not know the length of the array
 // const [p = 1, q = 1, r = 1] = [8, 9];
 // console.log(p, q, r); // output: 8 9 1
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
