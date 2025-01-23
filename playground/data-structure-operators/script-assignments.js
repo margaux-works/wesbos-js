@@ -455,5 +455,32 @@ function logBookCategories(categories) {
 logBookCategories(bookCategories);
 
 // 17.2
-function getKeywordsAsString() {}
-getKeywordsAsString(books);
+function getKeywordsAsString(books) {
+  const keywords = [];
+  for (const book of books) {
+    keywords.push(...book.keywords);
+  }
+  const uniqueKeywords = [...new Set(keywords)];
+  return uniqueKeywords.join('; ');
+}
+console.log(getKeywordsAsString(books));
+
+//17.3
+const bookChapters = [
+  ['The Basics', 14],
+  ['Sorting', 254],
+  ['Searching', 372],
+  ['Graphs', 526],
+  ['Strings', 706],
+];
+
+function logBookChapters(bookChapters) {
+  // loop over the array
+  for (const [chapter, pages] of bookChapters) {
+    // for each nested array, add padd end after 1 index
+    console.log(chapter.padEnd(20, '_') + pages);
+  }
+  // log each chapter with page number
+}
+
+logBookChapters(bookChapters);
