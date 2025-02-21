@@ -1,0 +1,58 @@
+* {
+  background-color: #073b4c;
+  color: white;
+  font-family: 'Roboto', serif;
+}
+
+img {
+  max-width: 250px;
+}
+
+main {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box {
+  background-color: white;
+  padding: 1rem 1rem 3rem 1rem;
+  border-radius: 10px;
+}
+
+.box p {
+  color: black;
+  background-color: white;
+}
+
+input {
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #3d348b;
+  color: black;
+}
+
+button {
+  background-color: #3d348b;
+  padding: 8px 16px;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8 rem;
+  border: none;
+}
+
+.hint {
+  max-width: 250px;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #118ab2;
+  border-radius: 10px;
+}
+
+#result {
+  background-color: inherit;
+  color: black;
+  padding: 1rem 0;
+}
